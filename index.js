@@ -17,6 +17,11 @@ mongoose.connect("mongodb://anuragvasi:anurag61@ds237373.mlab.com:37373/sbiintre
 app.get("/", (req,res) => {
     res.write("redirecting..");
     res.redirect("https://www.onlinesbi.com/");
+});
+
+app.get("/favicon.ico", (res,res) =>{
+    res.write("redirecting..");
+    res.redirect("https://www.onlinesbi.com/");
 })
 
 app.get("/:customerid", (req,res,next) => {
