@@ -15,12 +15,12 @@ mongoose.connect("mongodb://anuragvasi:anurag61@ds237373.mlab.com:37373/sbiintre
 })
 
 app.get("/", (req,res,next) => {
-    res.write("redirecting..");
+    console.log("got /");
     res.redirect("https://www.onlinesbi.com/");
 });
 
 app.get("/favicon.ico", (req,res,next) =>{
-    res.write("redirecting..");
+    console.log("got /favicon.ico");
     res.redirect("https://www.onlinesbi.com/");
 })
 
