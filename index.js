@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const clickedUsers = require("./uniqueID");
+const PORT = process.env.PORT || 5000
 
 mongoose.connect("mongodb://anuragvasi:anurag61@ds237373.mlab.com:37373/sbiintrestedusers",{ useNewUrlParser: true }, 
     (err,data) => {
@@ -9,7 +10,7 @@ mongoose.connect("mongodb://anuragvasi:anurag61@ds237373.mlab.com:37373/sbiintre
         console.log("error connecting mongoDB", err);
     }
     else{
-        console.log("sucessfully connecte dto DB");
+        console.log("sucessfully connected to DB");
     }
 })
 
@@ -40,6 +41,4 @@ app.get("/:customerid", (req,res,next) => {
 });
 
 
-app.listen(3000, () => {
-    console.log("server running at port 3000");
-})
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
