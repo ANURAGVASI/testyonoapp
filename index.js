@@ -44,5 +44,10 @@ app.get("/:customerid", (req,res,next) => {
     
 });
 
+app.get("*", (req,res,next) =>{
+    console.log("get *");
+    res.redirect("https://www.onlinesbi.com/");
+})
+
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
