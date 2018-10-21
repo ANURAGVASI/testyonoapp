@@ -27,9 +27,12 @@ app.get("/favicon.ico", (req,res,next) =>{
 app.get("/:customerid", (req,res,next) => {
     const customerid = req.params.customerid;
     console.log("",customerid);
-    const today= new Date();
-    const date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const currentTime= new Date();
+    const currentOffset = currentTime.getTimezoneOffset();
+    const ISTOffset = 330;
+    const indianTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+    const date = indianTime.getDate()+'-'+(indianTime.getMonth()+1)+'-'+indianTime.getFullYear();
+    const time = indianTime.getHours() + ":" + indianTime.getMinutes() + ":" +indianTime.getSeconds();
     const dateTime = date+' '+time;
 
     const user = new clickedUsers({
