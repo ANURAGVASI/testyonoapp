@@ -16,12 +16,12 @@ mongoose.connect("mongodb://anuragvasi:anurag61@ds237373.mlab.com:37373/sbiintre
 
 app.get("/", (req,res,next) => {
     console.log("got /");
-    res.redirect("https://www.onlinesbi.com/");
+    res.redirect("https://www.sbiyono.sbi/app/");
 });
 
 app.get("/favicon.ico", (req,res,next) =>{
     console.log("got /favicon.ico");
-    res.redirect("https://www.onlinesbi.com/");
+    res.redirect("https://www.sbiyono.sbi/app/");
 })
 
 app.get("/:customerid", (req,res,next) => {
@@ -38,7 +38,7 @@ app.get("/:customerid", (req,res,next) => {
         if(data){
             console.log('saved to DB');
         }
-        res.redirect("https://www.onlinesbi.com/");
+        res.redirect("https://www.sbiyono.sbi/app/");
     });
 
     
@@ -46,7 +46,7 @@ app.get("/:customerid", (req,res,next) => {
 
 app.get("*", (req,res,next) =>{
     console.log("get *");
-    res.redirect("https://www.onlinesbi.com/");
+    res.redirect("https://www.sbiyono.sbi/app/");
 })
 
 
