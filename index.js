@@ -27,8 +27,14 @@ app.get("/favicon.ico", (req,res,next) =>{
 app.get("/:customerid", (req,res,next) => {
     const customerid = req.params.customerid;
     console.log("",customerid);
+    const today= new Date();
+    const date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const dateTime = date+' '+time;
+
     const user = new clickedUsers({
-        clickedID:customerid
+        clickedID:customerid,
+        clickedTime: dateTime.toString()
     });
 
     user.save((err,data) => {
